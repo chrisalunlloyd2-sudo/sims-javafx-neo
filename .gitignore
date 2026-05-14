@@ -6,3 +6,18 @@ __pycache__/
 sprite_core/context_fence/db/sprite.db
 *.sqlite
 *.db
+
+# Gemini and AI Agents
+.gemini/
+.gemini
+.AIClient/
+.codex/
+.codeium/
+.windsurf/
+
+# Personal and OS Files
+*.log
+.env
+NTUSER.DAT*
+ntuser*
+desktop.ini
