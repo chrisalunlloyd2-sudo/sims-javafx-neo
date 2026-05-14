@@ -16,7 +16,7 @@ public class SystemIntegrity {
      */
     public static void validateSimInteractions(WorldGrid world) {
         for (Sim sim : world.getSims()) {
-            if (sim.getState() == Sim.Sim.SimState.INTERACTING) {
+            if (sim.getState() == Sim.SimState.INTERACTING) {
                 // Check if target still exists and is accessible
                 boolean targetFound = false;
                 for (GameObject obj : world.getObjects()) {
@@ -28,7 +28,7 @@ public class SystemIntegrity {
                 
                 if (!targetFound) {
                     System.out.println("[INTEGRITY] Sim " + sim.getName() + " orphaned. Resetting state.");
-                    sim.setState(Sim.Sim.SimState.IDLE);
+                    sim.setState(Sim.SimState.IDLE);
                 }
             }
         }

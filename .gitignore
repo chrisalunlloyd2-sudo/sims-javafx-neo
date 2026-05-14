@@ -1,0 +1,8 @@
+target/
+*.class
+*.pyc
+__pycache__/
+.DS_Store
+sprite_core/context_fence/db/sprite.db
+*.sqlite
+*.db

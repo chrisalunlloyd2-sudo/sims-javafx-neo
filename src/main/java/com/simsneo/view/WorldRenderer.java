@@ -4,8 +4,13 @@ import com.simsneo.engine.IsoMath;
 import com.simsneo.engine.Camera;
 import com.simsneo.model.Tile;
 import com.simsneo.model.WorldGrid;
+import com.simsneo.model.GameObject;
+import com.simsneo.model.Wall;
+import com.simsneo.model.Sim;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import java.util.List;
 
 /**
  * Step 51-100: The Isometric Rendering Engine
@@ -92,7 +97,11 @@ public class WorldRenderer {
         gc.fillOval(x - 10, y - 25, 20, 40);
         
         // Plumbob (Visual Ping)
-        gc.setFill(Color.web("#00ff00"));
+        if (sim.getName().contains("Security")) {
+            gc.setFill(Color.GOLD); // High-trust DePIN color
+        } else {
+            gc.setFill(Color.web("#00ff00"));
+        }
         double[] px = {x, x+5, x, x-5};
         double[] py = {y-45, y-40, y-35, y-40};
         gc.fillPolygon(px, py, 4);
@@ -100,6 +109,13 @@ public class WorldRenderer {
         gc.setFill(Color.WHITE);
         gc.setFont(Font.font("Arial", 10));
         gc.fillText(sim.getName(), x - 20, y - 50);
+
+        // Step 904: Data Traffic Visual Effects
+        if (sim.getName().contains("Sprite")) {
+            gc.setStroke(Color.CYAN);
+            gc.setLineWidth(1);
+            gc.strokeLine(x, y - 20, x + (Math.random() * 20 - 10), y - 60 - (Math.random() * 20));
+        }
     }
 
     /**

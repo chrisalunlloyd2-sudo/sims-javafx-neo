@@ -61,6 +61,29 @@ public class HUD extends HBox {
         addMotiveBar("Social");
 
         this.getChildren().addAll(portraitBox, infoBox, motiveContainer);
+        addOmniHUD(); // Step 1204
+    }
+
+    private Label lblNodes;
+    private Label lblAgents;
+
+    private void addOmniHUD() {
+        VBox gridInfo = new VBox(5);
+        gridInfo.setPadding(new Insets(5));
+        gridInfo.setStyle("-fx-background-color: #000040; -fx-border-color: #ffd700;");
+        
+        Label lblGrid = new Label("GLOBAL GRID: ONLINE");
+        lblGrid.setTextFill(Color.GOLD);
+        lblGrid.setFont(Font.font("Arial", 12));
+        
+        lblNodes = new Label("NODES: Syncing...");
+        lblNodes.setTextFill(Color.WHITE);
+
+        lblAgents = new Label("AGENTS: Syncing...");
+        lblAgents.setTextFill(Color.WHITE);
+        
+        gridInfo.getChildren().addAll(lblGrid, lblNodes, lblAgents);
+        this.getChildren().add(gridInfo);
     }
 
     private void addMotiveBar(String name) {
@@ -84,6 +107,11 @@ public class HUD extends HBox {
         // Update motive bars (Step 303)
         updateBar(0, activeSim.getMotive(Sim.Motive.HUNGER) / 100.0);
         updateBar(1, activeSim.getMotive(Sim.Motive.ENERGY) / 100.0);
+    }
+
+    public void updateGridStatus(int nodes, int agents) {
+        lblNodes.setText("NODES: " + nodes + " ACTIVE");
+        lblAgents.setText("AGENTS: " + agents + " DEPLOYED");
     }
 
     private void updateBar(int index, double progress) {
