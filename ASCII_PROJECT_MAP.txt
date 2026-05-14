@@ -1,0 +1,18 @@
+Sims_JavaFX_Neo/
+├── .git/                 <-- The Historical Ledger
+├── docs/                 <-- Deep Theory & Runbooks
+│   ├── SYSTEMS_ARCHITECTURE.md
+│   └── OPERATIONAL_RUNBOOK.md
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── module-info.java  <-- JavaFX Module Decoupling
+│   │   │   └── com/simsneo/
+│   │   │       ├── MainApp.java  <-- The Genesis Entry Point
+│   │   │       ├── engine/       <-- The Heartbeat (GameLoop, Pathfinding, IsoMath)
+│   │   │       ├── model/        <-- The DNA (Sim, WorldGrid, Tile, Wall, GameObject)
+│   │   │       └── view/         <-- The Skyline (WorldRenderer, HUD)
+│   │   └── resources/            <-- Assets & Sprites (Scrubbed)
+├── pom.xml               <-- The Maven Forge dependency sentinel
+├── JAVAFX_NEO_1700_STEP_PLAN.md <-- The 1700-Step Living Syllabus
+└── ASCII_PROJECT_MAP.txt <-- This Document
