@@ -1,0 +1,128 @@
+# Sims-JavaFX-Neo
+====================
+## Overview
+Sims-JavaFX-Neo is a JavaFX-based simulation framework. This project adheres to the v10.2 System Bible specification.
+
+## Visual Badges
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://img.shields.io/badge/Build_Status-Passing-green.svg)](https://github.com/chrisalunlloyd2-sudo/sims-javafx-neo/actions)
+[![Version](https://img.shields.io/badge/Version-1.0.0-red.svg)](https://github.com/chrisalunlloyd2-sudo/sims-javafx-neo/releases)
+
+## ASCII Architecture
+```
+├──.git/
+├── README.md
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── sims/
+│   │   │   │   ├── javafx/
+│   │   │   │   │   ├── neo/
+│   │   │   │   │   │   ├── SimsJavaFXNeo.java
+│   │   │   │   │   │   ├── Simulation.java
+│   │   │   │   │   │   ├── Entity.java
+│   │   │   │   │   │   ├── Environment.java
+│   │   │   │   │   ├── utils/
+│   │   │   │   │   │   ├── MathUtils.java
+│   │   │   │   │   │   ├── GraphicsUtils.java
+│   │   │   │   │   ├── scenes/
+│   │   │   │   │   │   ├── SimulationScene.java
+│   │   │   │   │   │   ├── EntityScene.java
+│   │   │   │   │   │   ├── EnvironmentScene.java
+│   │   │   │   │   ├── controllers/
+│   │   │   │   │   │   ├── SimulationController.java
+│   │   │   │   │   │   ├── EntityController.java
+│   │   │   │   │   │   ├── EnvironmentController.java
+│   │   │   │   │   ├── models/
+│   │   │   │   │   │   ├── SimulationModel.java
+│   │   │   │   │   │   ├── EntityModel.java
+│   │   │   │   │   │   ├── EnvironmentModel.java
+│   │   │   │   │   ├── views/
+│   │   │   │   │   │   ├── SimulationView.java
+│   │   │   │   │   │   ├── EntityView.java
+│   │   │   │   │   │   ├── EnvironmentView.java
+│   │   ├── resources/
+│   │   │   ├── images/
+│   │   │   ├── styles/
+│   │   │   ├── fonts/
+│   ├── test/
+│   │   ├── java/
+│   │   │   ├── sims/
+│   │   │   │   ├── javafx/
+│   │   │   │   │   ├── neo/
+│   │   │   │   │   │   ├── SimsJavaFXNeoTest.java
+│   │   │   │   │   │   ├── SimulationTest.java
+│   │   │   │   │   │   ├── EntityTest.java
+│   │   │   │   │   │   ├── EnvironmentTest.java
+├──.gitignore
+├── build.gradle
+├── settings.gradle
+```
+
+## Deep Dive Descriptions
+Sims-JavaFX-Neo is designed to provide a robust and flexible framework for creating simulations. The project is structured into several modules, each responsible for a specific aspect of the simulation.
+
+### Why Sims-JavaFX-Neo?
+Sims-JavaFX-Neo was created to address the need for a modular and extensible simulation framework. By providing a robust set of tools and APIs, developers can create complex simulations with ease.
+
+### Axiomatic Breakdowns
+The Sims-JavaFX-Neo framework is based on the following axioms:
+
+*   **UI**: The user interface is responsible for rendering the simulation and providing user input.
+*   **DB**: The database is responsible for storing and retrieving simulation data.
+*   **State**: The state module is responsible for managing the simulation state.
+*   **API**: The API provides a set of interfaces for interacting with the simulation.
+
+## Multi-Platform Setups
+### Windows Setup
+1.  Install Java 11+ from the official Oracle website.
+2.  Open PowerShell.
+3.  Run: `gradle build`
+4.  Execute: `gradle run`
+
+### Android Setup (Using Termux)
+1.  Install Termux from the Google Play Store.
+2.  Install Java 11+ using the `pkg` command: `pkg install openjdk-11`
+3.  Install Gradle using the `pkg` command: `pkg install gradle`
+4.  Run: `gradle build`
+5.  Execute: `gradle run`
+
+## ASCII Data Flow Charts
+```
+                                      +-----------------+
+                                      |  User Input    |
+                                      +-----------------+
+                                             |
+                                             |
+                                             v
+                                      +-----------------+
+                                      |  UI Controller  |
+                                      +-----------------+
+                                             |
+                                             |
+                                             v
+                                      +-----------------+
+                                      |  Simulation    |
+                                      |  (State, DB, API) |
+                                      +-----------------+
+                                             |
+                                             |
+                                             v
+                                      +-----------------+
+                                      |  Entity, Environment|
+                                      |  (Model, View, Controller)|
+                                      +-----------------+
+                                             |
+                                             |
+                                             v
+                                      +-----------------+
+                                      |  Graphics, Math  |
+                                      |  (Utils)         |
+                                      +-----------------+
+```
+
+## Contributing
+Contributions are welcome! Please submit a pull request with your changes.
+
+## License
+Sims-JavaFX-Neo is licensed under the Apache 2.0 license.
