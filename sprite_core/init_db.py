@@ -54,7 +54,7 @@ def init_db():
 
     for sentence, script, desc in seed_data:
         try:
-            cursor.execute("INSERT INTO performatives (sentence, script_path, description) VALUES (?, ?, ?)", 
+            cursor.execute("INSERT INTO performatives (sentence, script_path, description) VALUES (?, ?, ?)",
                            (sentence, script, desc))
         except sqlite3.IntegrityError:
             pass

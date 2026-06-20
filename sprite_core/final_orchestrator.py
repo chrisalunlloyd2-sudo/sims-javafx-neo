@@ -26,19 +26,19 @@ class FinalOrchestrator:
 
     def boot(self):
         print("--- [FINAL ORCHESTRATOR] BOOTING 1700-STEP ARCHITECTURE ---")
-        
+
         # Step 755: Persistence
         inject_startup_hook()
-        
+
         # Step 1402: Stress Test
         self.run_stress_test()
-        
+
         # Step 1003 & 1105 & 1401: Start synchronization and Grid
         print("[!] Activating Total Grid Synchronization...")
-        
+
         # Start watchdog in background
         threading.Thread(target=maintain_persistence, daemon=True).start()
-        
+
         # Start Main Simulation Loop
         self.sim_orch.start_simulation()
 

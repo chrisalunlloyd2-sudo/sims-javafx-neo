@@ -23,7 +23,7 @@ class AutonomousController:
         """Step 651: Link Environment Monitor to Markov Model"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        
+
         # Get latest metrics
         cursor.execute("SELECT cpu_load, mem_free, active_processes FROM environment_states ORDER BY timestamp DESC LIMIT 1")
         row = cursor.fetchone()
@@ -37,15 +37,15 @@ class AutonomousController:
 
         # Seeded Logic (Step 653 anticipation)
         action_id = None
-        
+
         # Rule 1: High CPU -> Check Heartbeat (diagnostic)
         if cpu > 80:
-            action_id = 1 
-        
+            action_id = 1
+
         # Rule 2: Low Memory -> Data Purge
         elif mem < 1000: # Assuming 1000MB as a low threshold for simulation
             action_id = 3
-        
+
         # Rule 3: High Process Count -> Environment Sweep
         elif proc > 100:
             action_id = 2
@@ -58,11 +58,11 @@ class AutonomousController:
 
     def execute_autonomous_action(self, action_id):
         # Check Markov model for confidence (Step 652)
-        # In autonomous mode, we check if this action is statistically sound 
+        # In autonomous mode, we check if this action is statistically sound
         # or if we have a predicted next step with high confidence
-        
+
         print(f"[AUTO] Threshold reached. Suggesting Action ID {action_id}")
-        
+
         # For simulation, we'll execute if confidence > threshold or if it's a hard-coded trigger
         # We'll use the orchestrator to run it
         pid = self.orchestrator.run_command(action_id)

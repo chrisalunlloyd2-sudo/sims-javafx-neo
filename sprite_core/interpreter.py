@@ -12,17 +12,17 @@ class PerformativeInterpreter:
         print(f"[*] Interpreting: '{text}'")
         # Logic to decide if we should create a new script or find existing
         # For Step 551, we translate directives into functional shell commands
-        
+
         # Simple heuristic: if it looks like a system command we already have, return it
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute("SELECT id, sentence FROM performatives WHERE sentence LIKE ?", (f"%{text}%",))
         match = cursor.fetchone()
-        
+
         if match:
             print(f"[+] Match found in index: {match[1]} (ID: {match[0]})")
             return match[0]
-        
+
         # If no match, we "generate" a new performative (simulated Step 552)
         print(f"[-] No direct match. Generating new performative for '{text}'...")
         new_id = self.allocate_new(text)

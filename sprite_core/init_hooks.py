@@ -7,12 +7,12 @@ def inject_startup_hook():
     user = getpass.getuser()
     startup_path = f"C:\\Users\\{user}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
     shortcut_path = os.path.join(startup_path, "sprite_init.bat")
-    
+
     py_exe = r"C:\Users\viper\python\python.exe"
     watchdog_script = os.path.abspath("sprite_core/sprite_watchdog.py")
-    
+
     content = f"@echo off\nstart /B {py_exe} {watchdog_script}\n"
-    
+
     try:
         with open(shortcut_path, "w") as f:
             f.write(content)

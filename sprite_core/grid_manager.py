@@ -18,14 +18,14 @@ class GridManager:
         self.protocol = GridProtocol()
         self.node_id = get_hardware_uuid()
         self.known_nodes = {} # ip -> last_heartbeat
-        
+
     def grid_callback(self, message, addr):
         # Step 1104: Grid Handshakes
         if message['type'] == 'HANDSHAKE':
             print(f"[GRID] New Handshake from {addr[0]} (ID: {message['node_id'][:12]}...)")
             self.known_nodes[addr[0]] = time.time()
             return {"status": "ACK", "node_id": self.node_id}
-        
+
         # Step 1105: Network Heartbeat
         if message['type'] == 'HEARTBEAT':
             self.known_nodes[addr[0]] = time.time()
@@ -35,10 +35,10 @@ class GridManager:
             agent_name = message['agent_name']
             print(f"[GRID] Remote Request: Deploying '{agent_name}' on this node.")
             return {"status": "DEPLOYED", "node": self.node_id}
-            
+
         if message['type'] == 'SYNC_STATE':
             return {"status": "SYNCED", "health": "OK"}
-            
+
         return {"status": "UNKNOWN_TYPE"}
 
     def run_heartbeat_loop(self):
@@ -69,7 +69,7 @@ class GridManager:
 if __name__ == "__main__":
     manager = GridManager(DB_PATH)
     manager.start()
-    
+
     # Simulate a remote deployment to self
     import time
     time.sleep(2)

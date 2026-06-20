@@ -25,22 +25,22 @@ class LivingSimulationOrchestrator:
         print("[!] Synchronizing Background Sprite Engine with Visual JavaFX Bridge...")
         print("[!] Global Grid Protocol Active.")
         self.is_running = True
-        
+
         # Start Grid Manager
         self.grid.start()
-        
+
         # In a real scenario, this might start the JavaFX process too
         # subprocess.Popen(["mvn", "exec:java", "-Dexec.mainClass='com.simsneo.MainApp'"], cwd="C:/Users/viper/Desktop/Sims_JavaFX_Neo")
-        
+
         try:
             while self.is_running:
                 # Coordinate execution loop
                 self.controller.check_environment_and_act()
                 self.controller.self_modify()
-                
+
                 # Check for DePIN Reputation updates
                 self.update_trust_scores()
-                
+
                 time.sleep(10)
         except KeyboardInterrupt:
             self.stop_simulation()

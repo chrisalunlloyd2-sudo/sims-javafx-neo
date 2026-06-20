@@ -9,11 +9,11 @@ def get_hardware_uuid():
             # Get CPU ID via PowerShell
             cpu_cmd = "powershell -NoProfile -Command \"(Get-WmiObject -Class Win32_Processor).ProcessorId\""
             cpu_id = subprocess.check_output(cpu_cmd, shell=True).decode().strip()
-            
+
             # Get Disk Serial via PowerShell
             disk_cmd = "powershell -NoProfile -Command \"(Get-WmiObject -Class Win32_DiskDrive).SerialNumber\""
             disk_id = subprocess.check_output(disk_cmd, shell=True).decode().strip()
-            
+
             raw_id = f"{cpu_id}-{disk_id}"
             hardware_hash = hashlib.sha256(raw_id.encode()).hexdigest()
             return hardware_hash

@@ -13,7 +13,7 @@ class LearningEngine:
         # or if the performative is a core system check (IDs 1-3)
         if from_id in [1, 2, 3] or to_id in [1, 2, 3]:
             return True
-        
+
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute(
@@ -22,28 +22,28 @@ class LearningEngine:
         )
         row = cursor.fetchone()
         conn.close()
-        
+
         # If it's a new transition, we record it, but we could add more complex state-based logic here
-        return True 
+        return True
 
     def record_transition(self, from_id, to_id):
         """Step 602: Build the Recursive Rolling Log with Data Withdraw filter"""
         if from_id is None or to_id is None:
             return
-        
+
         if not self.is_relevant(from_id, to_id):
             return
 
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        
+
         # Check if transition exists
         cursor.execute(
             "SELECT transition_count FROM markov_transitions WHERE from_id = ? AND to_id = ?",
             (from_id, to_id)
         )
         row = cursor.fetchone()
-        
+
         if row:
             cursor.execute(
                 "UPDATE markov_transitions SET transition_count = transition_count + 1 WHERE from_id = ? AND to_id = ?",
@@ -54,7 +54,7 @@ class LearningEngine:
                 "INSERT INTO markov_transitions (from_id, to_id, transition_count) VALUES (?, ?, 1)",
                 (from_id, to_id)
             )
-        
+
         conn.commit()
         self.update_probabilities(from_id, conn)
         conn.close()
@@ -64,7 +64,7 @@ class LearningEngine:
         cursor = conn.cursor()
         cursor.execute("SELECT SUM(transition_count) FROM markov_transitions WHERE from_id = ?", (from_id,))
         total = cursor.fetchone()[0]
-        
+
         if total > 0:
             cursor.execute(
                 "UPDATE markov_transitions SET probability = CAST(transition_count AS REAL) / ? WHERE from_id = ?",
@@ -87,7 +87,7 @@ class LearningEngine:
         """Step 702: Implement Alias Compounding"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        
+
         # Find sequences that appear frequently
         # This is a simplified version looking at transitions
         cursor.execute(
@@ -95,7 +95,7 @@ class LearningEngine:
             (threshold,)
         )
         sequences = cursor.fetchall()
-        
+
         for from_id, to_id, count in sequences:
             sequence_str = f"{from_id} {to_id}"
             cursor.execute("SELECT id FROM aliases WHERE sequence = ?", (sequence_str,))
@@ -111,7 +111,7 @@ class LearningEngine:
                     "INSERT INTO aliases (sequence, alias_id) VALUES (?, ?)",
                     (sequence_str, new_id)
                 )
-        
+
         conn.commit()
         conn.close()
 
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     engine.record_transition(1, 2)
     print("[*] Simulating transition learning: 1 -> 3")
     engine.record_transition(1, 3)
-    
+
     pred = engine.get_prediction(1)
     if pred:
         print(f"[+] Prediction for ID 1: Next is likely ID {pred[0]} (Prob: {pred[1]:.2f})")

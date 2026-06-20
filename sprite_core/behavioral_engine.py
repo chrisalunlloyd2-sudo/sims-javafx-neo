@@ -15,7 +15,7 @@ class BehavioralEngine:
         cursor.execute("SELECT traits FROM agent_profiles WHERE name = ?", (agent_name,))
         row = cursor.fetchone()
         conn.close()
-        
+
         if row:
             traits = json.loads(row[0])
             # High Diligence + High Execution Speed = High Priority (Simplified)
@@ -43,6 +43,6 @@ if __name__ == "__main__":
     be = BehavioralEngine(DB_PATH)
     prio = be.get_execution_priority("Maintenance Sprite")
     print(f"[BEHAVIOR] Maintenance Sprite Priority: {prio:.2f}")
-    
+
     iac = IACProtocol()
     iac.send_handover("Discovery Sprite", "Maintenance Sprite", {"action": "Optimizing discovered path", "path": "C:/Windows/Temp"})

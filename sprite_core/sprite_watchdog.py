@@ -10,14 +10,14 @@ def is_process_running(name):
     try:
         output = subprocess.check_output(f'tasklist /FI "IMAGENAME eq {name}"', shell=True).decode()
         return name in output
-    except:
+    except Exception:
         return False
 
 def maintain_persistence():
     print("[WATCHDOG] Initializing Sprite Watchdog...")
     controller_script = "sprite_core/simulation_orchestrator.py"
     py_exe = r"C:\Users\viper\python\python.exe"
-    
+
     while True:
         # Step 754: Deploy Paired Watchdog Processes
         # Check if Orchestrator is alive
@@ -29,7 +29,7 @@ def maintain_persistence():
                 subprocess.Popen([py_exe, controller_script])
         except Exception as e:
             print(f"[WATCHDOG] Error: {e}")
-        
+
         time.sleep(30)
 
 if __name__ == "__main__":

@@ -18,12 +18,12 @@ class GridProtocol:
         self.server_socket.listen(5)
         self.is_running = True
         print(f"[GRID] Server started on {self.host}:{self.port}")
-        
+
         while self.is_running:
             try:
                 client, addr = self.server_socket.accept()
                 threading.Thread(target=self.handle_client, args=(client, addr, callback)).start()
-            except:
+            except Exception:
                 break
 
     def handle_client(self, client, addr, callback):
@@ -54,10 +54,10 @@ if __name__ == "__main__":
     protocol = GridProtocol()
     def test_callback(msg, addr):
         return {"status": "ACK", "echo": msg}
-    
+
     t = threading.Thread(target=protocol.start_server, args=(test_callback,), daemon=True)
     t.start()
-    
+
     import time
     time.sleep(1)
     resp = protocol.send_message('127.0.0.1', 5555, {"type": "HANDSHAKE", "node_id": "test_node"})

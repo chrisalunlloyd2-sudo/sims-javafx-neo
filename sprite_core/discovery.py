@@ -23,18 +23,18 @@ class DiscoveryModule:
         print(f"[*] Starting Brute-Force Discovery Sweep (Limit: {limit})...")
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        
+
         found_count = 0
         for path in self.common_paths:
             if not os.path.exists(path):
                 continue
-            
+
             print(f"[*] Crawling: {path}")
             try:
                 for entry in os.scandir(path):
                     if found_count >= limit:
                         break
-                    
+
                     if entry.is_file() and (entry.name.endswith(".exe") or entry.name.endswith(".com") or platform.system() != "Windows"):
                         # Check if already indexed
                         cursor.execute("SELECT id FROM performatives WHERE sentence = ?", (entry.name,))
@@ -47,7 +47,7 @@ class DiscoveryModule:
                             found_count += 1
             except PermissionError:
                 continue
-                
+
         conn.commit()
         conn.close()
         print(f"[+] Discovery complete. Indexed {found_count} new performatives.")
