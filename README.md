@@ -1,237 +1,222 @@
-# Sims-JavaFX-Neo
-====================
-## Overview
-Sims-JavaFX-Neo is a JavaFX-based simulation framework. This project adheres to the v10.2 System Bible specification.
+# sims-javafx-neo
 
-## Visual Badges
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://img.shields.io/badge/Build_Status-Passing-green.svg)](https://github.com/chrisalunlloyd2-sudo/sims-javafx-neo/actions)
-[![Version](https://img.shields.io/badge/Version-1.0.0-red.svg)](https://github.com/chrisalunlloyd2-sudo/sims-javafx-neo/releases)
+> sim_backend.py — Persistent Python simulation backend for sims-javafx-neo.
 
-## ASCII Architecture
+*Auto-generated 2026-06-26 09:42 from source — branch `main`, 21 Python modules, 39 other files.*
+
+## Architecture
+
 ```
-├──.git/
-├── README.md
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   ├── sims/
-│   │   │   │   ├── javafx/
-│   │   │   │   │   ├── neo/
-│   │   │   │   │   │   ├── SimsJavaFXNeo.java
-│   │   │   │   │   │   ├── Simulation.java
-│   │   │   │   │   │   ├── Entity.java
-│   │   │   │   │   │   ├── Environment.java
-│   │   │   │   │   ├── utils/
-│   │   │   │   │   │   ├── MathUtils.java
-│   │   │   │   │   │   ├── GraphicsUtils.java
-│   │   │   │   │   ├── scenes/
-│   │   │   │   │   │   ├── SimulationScene.java
-│   │   │   │   │   │   ├── EntityScene.java
-│   │   │   │   │   │   ├── EnvironmentScene.java
-│   │   │   │   │   ├── controllers/
-│   │   │   │   │   │   ├── SimulationController.java
-│   │   │   │   │   │   ├── EntityController.java
-│   │   │   │   │   │   ├── EnvironmentController.java
-│   │   │   │   │   ├── models/
-│   │   │   │   │   │   ├── SimulationModel.java
-│   │   │   │   │   │   ├── EntityModel.java
-│   │   │   │   │   │   ├── EnvironmentModel.java
-│   │   │   │   │   ├── views/
-│   │   │   │   │   │   ├── SimulationView.java
-│   │   │   │   │   │   ├── EntityView.java
-│   │   │   │   │   │   ├── EnvironmentView.java
-│   │   ├── resources/
-│   │   │   ├── images/
-│   │   │   ├── styles/
-│   │   │   ├── fonts/
-│   ├── test/
-│   │   ├── java/
-│   │   │   ├── sims/
-│   │   │   │   ├── javafx/
-│   │   │   │   │   ├── neo/
-│   │   │   │   │   │   ├── SimsJavaFXNeoTest.java
-│   │   │   │   │   │   ├── SimulationTest.java
-│   │   │   │   │   │   ├── EntityTest.java
-│   │   │   │   │   │   ├── EnvironmentTest.java
-├──.gitignore
-├── build.gradle
-├── settings.gradle
+  .director_payload.md
+  .gitignore
+  ASCII_PROJECT_MAP.txt
+  Blueprint.md
+  CHANGELOG.md
+  JAVAFX_NEO_1700_STEP_PLAN.md
+  PROJECT_LOG.md
+  README.md
+  ROADMAP.md
+  pom.xml
+  sprite_package.zip
+  docs/
+    OPERATIONAL_RUNBOOK.md
+    SYSTEMS_ARCHITECTURE.md
+  sprite_core/
+    autonomous_controller.py
+    behavioral_engine.py
+    discovery.py
+    final_orchestrator.py
+    grid_manager.py
+    grid_protocol.py
+    hardware_id.py
+    init_db.py
+    init_hooks.py
+    interceptor.py
+    interpreter.py
+    learning_engine.py
+    context_fence/
+      memory_discovery_sprite.json
+      memory_maintenance_sprite.json
+      memory_security_sprite.json
+      db/
+        sprite.db
+    scripts/
+      heartbeat.py
+      purge.py
+      sweep.py
+  src/
+    main/
+      java/
+        module-info.java
 ```
 
-## Deep Dive Descriptions
-Sims-JavaFX-Neo is designed to provide a robust and flexible framework for creating simulations. The project is structured into several modules, each responsible for a specific aspect of the simulation.
+## Dependencies
 
-### Why Sims-JavaFX-Neo?
-Sims-JavaFX-Neo was created to address the need for a modular and extensible simulation framework. By providing a robust set of tools and APIs, developers can create complex simulations with ease.
+External packages imported by this project:
 
-### Axiomatic Breakdowns
-The Sims-JavaFX-Neo framework is based on the following axioms:
+`getpass`, `psutil`
 
-*   **UI**: The user interface is responsible for rendering the simulation and providing user input.
-*   **DB**: The database is responsible for storing and retrieving simulation data.
-*   **State**: The state module is responsible for managing the simulation state.
-*   **API**: The API provides a set of interfaces for interacting with the simulation.
+## How to run
 
-## Multi-Platform Setups
-### Windows Setup
-1.  Install Java 11+ from the official Oracle website.
-2.  Open PowerShell.
-3.  Run: `gradle build`
-4.  Execute: `gradle run`
+Executable entry points (have a `__main__` block):
 
-### Android Setup (Using Termux)
-1.  Install Termux from the Google Play Store.
-2.  Install Java 11+ using the `pkg` command: `pkg install openjdk-11`
-3.  Install Gradle using the `pkg` command: `pkg install gradle`
-4.  Run: `gradle build`
-5.  Execute: `gradle run`
+- `python sprite_core/autonomous_controller.py`
+- `python sprite_core/behavioral_engine.py`
+- `python sprite_core/discovery.py`
+- `python sprite_core/final_orchestrator.py`
+- `python sprite_core/grid_manager.py`
+- `python sprite_core/grid_protocol.py`
+- `python sprite_core/hardware_id.py`
+- `python sprite_core/init_db.py`
+- `python sprite_core/init_hooks.py`
+- `python sprite_core/interceptor.py`
+- `python sprite_core/interpreter.py`
+- `python sprite_core/learning_engine.py`
 
-## ASCII Data Flow Charts
+## Modules
+
+### `sprite_core/autonomous_controller.py`
+
+- **class `AutonomousController`**
+  - methods: `check_environment_and_act`, `execute_autonomous_action`, `self_modify`
+
+### `sprite_core/behavioral_engine.py`
+
+- **class `BehavioralEngine`**
+  - methods: `get_execution_priority`
+- **class `IACProtocol`** — Step 805: Inter-Agent Communication
+  - methods: `send_handover`
+
+### `sprite_core/discovery.py`
+
+- **class `DiscoveryModule`**
+  - methods: `sweep`
+
+### `sprite_core/final_orchestrator.py`
+
+- **class `FinalOrchestrator`** — Step 1403: Deploy the 'Final Orchestrator'
+  - methods: `run_stress_test`, `boot`
+
+### `sprite_core/grid_manager.py`
+
+- **class `GridManager`** — Step 1102: Remote Agent Deployment & Step 1103: Global State Ledger
+  - methods: `grid_callback`, `run_heartbeat_loop`, `start`, `deploy_to_remote`
+
+### `sprite_core/grid_protocol.py`
+
+- **class `GridProtocol`** — Step 1101: Define the 'Grid Protocol'
+  - methods: `start_server`, `handle_client`, `send_message`
+
+### `sprite_core/hardware_id.py`
+
+- `get_hardware_uuid()` — Step 1001: Implement 'Real-World Anchoring'
+
+### `sprite_core/init_db.py`
+
+- `init_db()`
+
+### `sprite_core/init_hooks.py`
+
+- `inject_startup_hook()` — Step 755: Inject Deep Init Hooks (Windows Startup Folder)
+
+### `sprite_core/interceptor.py`
+
+- `resolve_aliases(ids)` — Step 702: Resolve aliases in the input sequence
+- `execute_by_id(p_id, headless)`
+- `process_input(user_input, headless)`
+- `fallback_nlp(text)`
+
+### `sprite_core/interpreter.py`
+
+- **class `PerformativeInterpreter`**
+  - methods: `translate`, `allocate_new`
+
+### `sprite_core/learning_engine.py`
+
+- **class `LearningEngine`**
+  - methods: `is_relevant`, `record_transition`, `update_probabilities`, `get_prediction`, `check_for_aliases`
+
+### `sprite_core/monitor.py`
+
+- `get_system_metrics()`
+- `log_metrics()`
+
+### `sprite_core/orchestrator.py`
+
+- **class `KernelOrchestrator`**
+  - methods: `run_command`, `kill_process`, `list_active`
+
+### `sprite_core/profile_manager.py`
+
+- **class `OpenClawProfileManager`**
+  - methods: `generate_full_profile`
+
+### `sprite_core/sim_backend.py`
+
+sim_backend.py — Persistent Python simulation backend for sims-javafx-neo.
+
+- `cmd_status(_msg)`
+- `cmd_get_agents(_msg)`
+- `cmd_get_grid(_msg)`
+- `cmd_get_system(_msg)`
+- `cmd_tick(_msg)`
+- `cmd_get_performatives(msg)`
+- `cmd_add_performative(msg)`
+- `cmd_log_transition(msg)`
+- `main()`
+
+### `sprite_core/simulation_orchestrator.py`
+
+- **class `LivingSimulationOrchestrator`** — Step 1003 & 1105: Finalize the 'Living Simulation' Orchestrator with Grid Support
+  - methods: `start_simulation`, `update_trust_scores`, `stop_simulation`
+
+### `sprite_core/sprite_watchdog.py`
+
+- `is_process_running(name)`
+- `maintain_persistence()`
+
+## Public API index
+
+| Module | Function | Signature |
+|--------|----------|-----------|
+| `hardware_id` | `get_hardware_uuid` | `get_hardware_uuid()` |
+| `init_db` | `init_db` | `init_db()` |
+| `init_hooks` | `inject_startup_hook` | `inject_startup_hook()` |
+| `interceptor` | `execute_by_id` | `execute_by_id(p_id, headless)` |
+| `interceptor` | `fallback_nlp` | `fallback_nlp(text)` |
+| `interceptor` | `process_input` | `process_input(user_input, headless)` |
+| `interceptor` | `resolve_aliases` | `resolve_aliases(ids)` |
+| `monitor` | `get_system_metrics` | `get_system_metrics()` |
+| `monitor` | `log_metrics` | `log_metrics()` |
+| `sim_backend` | `cmd_add_performative` | `cmd_add_performative(msg)` |
+| `sim_backend` | `cmd_get_agents` | `cmd_get_agents(_msg)` |
+| `sim_backend` | `cmd_get_grid` | `cmd_get_grid(_msg)` |
+| `sim_backend` | `cmd_get_performatives` | `cmd_get_performatives(msg)` |
+| `sim_backend` | `cmd_get_system` | `cmd_get_system(_msg)` |
+| `sim_backend` | `cmd_log_transition` | `cmd_log_transition(msg)` |
+| `sim_backend` | `cmd_status` | `cmd_status(_msg)` |
+| `sim_backend` | `cmd_tick` | `cmd_tick(_msg)` |
+| `sim_backend` | `main` | `main()` |
+| `sprite_watchdog` | `is_process_running` | `is_process_running(name)` |
+| `sprite_watchdog` | `maintain_persistence` | `maintain_persistence()` |
+
+## Status
+
+- Branch: `main`
+- Last commit: 2026-06-20 02:09:11 -0600
+- File types: .java ×22, .md ×9, .json ×3, .txt ×1, .xml ×1, .zip ×1, .log ×1, .db ×1
+
+### Recent commits
 ```
-                                      +-----------------+
-                                      |  User Input    |
-                                      +-----------------+
-                                             |
-                                             |
-                                             v
-                                      +-----------------+
-                                      |  UI Controller  |
-                                      +-----------------+
-                                             |
-                                             |
-                                             v
-                                      +-----------------+
-                                      |  Simulation    |
-                                      |  (State, DB, API) |
-                                      +-----------------+
-                                             |
-                                             |
-                                             v
-                                      +-----------------+
-                                      |  Entity, Environment|
-                                      |  (Model, View, Controller)|
-                                      +-----------------+
-                                             |
-                                             |
-                                             v
-                                      +-----------------+
-                                      |  Graphics, Math  |
-                                      |  (Utils)         |
-                                      +-----------------+
+6818dae [Moe autonomous] sims-javafx-neo 2026-06-20 02:09
+7a5a288 [Moe autonomous] sims-javafx-neo 2026-06-19 20:57
+8c8eb27 Wire persistent Python bridge for sim engine
+26e09ae Enterprise: Automated Project Sync
+39e7232 Enterprise: Automated Project Sync
+ce4f983 chore: deep scrub of gemini and personal files
+7921165 feat: 1700-Step Final Evolution & Sprite Core OS Bridge
+84020b4 Genesis: Sims JavaFX Neo v1.0.0 Base Architecture
 ```
 
-## Contributing
-Contributions are welcome! Please submit a pull request with your changes.
-
-## License
-Sims-JavaFX-Neo is licensed under the Apache 2.0 license.
-
-
-# --- FOUNDRY v10.2 RESTORATION & EXPANSION ---
-# Sims-JavaFX-Neo
-====================
-## Overview
-Sims-JavaFX-Neo is a JavaFX-based simulation framework. This project adheres to the v10.2 System Bible, ensuring the highest standards of documentation, architecture, and maintainability.
-
-### Visual Badges
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Build Status](https://img.shields.io/badge/Build%20Status-Passing-green.svg)](https://github.com/chrisalunlloyd2/sims-javafx-neo/actions)
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](https://github.com/chrisalunlloyd2/sims-javafx-neo/releases)
-
-### ASCII Architecture
-```
-├── .git/
-├── README.md
-├── LICENSE
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   ├── sims/
-│   │   │   │   ├── javafx/
-│   │   │   │   │   ├── neo/
-│   │   │   │   │   │   ├── Main.java
-│   │   │   │   │   │   ├── Simulation.java
-│   │   │   │   │   │   ├── Model.java
-│   │   │   │   │   │   ├── View.java
-│   │   │   │   │   │   ├── Controller.java
-│   │   │   │   │   │   ├── util/
-│   │   │   │   │   │   │   ├── Utility.java
-│   │   │   │   │   │   │   ├── Constants.java
-│   │   │   │   │   │   ├── resources/
-│   │   │   │   │   │   │   ├── styles.css
-│   │   │   │   │   │   │   ├── images/
-│   │   │   │   │   │   │   │   ├── logo.png
-│   │   │   │   │   │   │   │   ├── icon.png
-│   │   │   │   │   │   ├── scenes/
-│   │   │   │   │   │   │   ├── MainScene.fxml
-│   │   │   │   │   │   │   ├── SimulationScene.fxml
-│   │   │   │   │   │   ├── controllers/
-│   │   │   │   │   │   │   ├── MainController.java
-│   │   │   │   │   │   │   ├── SimulationController.java
-│   │   │   │   │   │   ├── models/
-│   │   │   │   │   │   │   ├── SimulationModel.java
-│   │   │   │   │   │   │   ├── UserModel.java
-│   │   │   │   │   │   ├── views/
-│   │   │   │   │   │   │   ├── SimulationView.java
-│   │   │   │   │   │   │   ├── UserView.java
-│   │   ├── resources/
-│   │   │   ├── styles.css
-│   │   │   ├── images/
-│   │   │   │   ├── logo.png
-│   │   │   │   ├── icon.png
-│   ├── test/
-│   │   ├── java/
-│   │   │   ├── sims/
-│   │   │   │   ├── javafx/
-│   │   │   │   │   ├── neo/
-│   │   │   │   │   │   ├── TestMain.java
-│   │   │   │   │   │   ├── TestSimulation.java
-│   │   │   │   │   │   ├── TestModel.java
-│   │   │   │   │   │   ├── TestView.java
-│   │   │   │   │   │   ├── TestController.java
-│   ├── pom.xml
-├── .gitignore
-├── requirements.txt
-```
-
-### Deep Dive Descriptions
-Sims-JavaFX-Neo is designed to provide a robust and scalable simulation framework for JavaFX applications. The project is structured into several modules, each responsible for a specific aspect of the simulation.
-
-*   The `main` module contains the core simulation logic, including the `Main` class, which serves as the entry point for the application.
-*   The `simulation` module contains the simulation-specific logic, including the `Simulation` class, which represents a single simulation.
-*   The `model` module contains the data models used by the simulation, including the `Model` class, which represents a single data point.
-*   The `view` module contains the user interface components, including the `View` class, which represents a single user interface element.
-*   The `controller` module contains the logic for controlling the simulation, including the `Controller` class, which manages the interaction between the simulation and the user interface.
-
-### Axiomatic Breakdowns
-The Sims-JavaFX-Neo project is based on the following axioms:
-
-*   **UI**: The user interface is responsible for rendering the simulation and providing user input.
-*   **DB**: The database is responsible for storing and retrieving simulation data.
-*   **State**: The simulation state is responsible for managing the current state of the simulation.
-*   **API**: The application programming interface is responsible for providing a interface for interacting with the simulation.
-
-### Multi-Platform Setups
-To set up Sims-JavaFX-Neo on different platforms, follow these steps:
-
-#### Windows Setup
-1.  Install Java Development Kit (JDK) 11 or later from the official Oracle website.
-2.  Install Apache Maven from the official Apache website.
-3.  Clone the Sims-JavaFX-Neo repository using Git.
-4.  Navigate to the project directory and run the following command to build the project: `mvn clean package`
-5.  Run the following command to execute the project: `java -jar target/sims-javafx-neo-1.0.0.jar`
-
-#### Android Setup (using Termux)
-1.  Install Termux from the Google Play Store.
-2.  Install the necessary packages: `pkg install git java openjdk-11`
-3.  Clone the Sims-JavaFX-Neo repository using Git.
-4.  Navigate to the project directory and run the following command to build the project: `./gradlew build`
-5.  Run the following command to execute the project: `java -jar build/libs/sims-javafx-neo-1.0.0.jar`
-
-[CMD]
-```bash
-git clone https://github.com/chrisalunlloyd2/sims-javafx-neo.git
-cd sims-javafx-neo
-mvn clean package
-java -jar target/sims-javafx-neo-1.0.0.jar
+---
+*README generated by `readme_generator.py` (Viper). Deterministic — derived from source, not LLM prose.*
