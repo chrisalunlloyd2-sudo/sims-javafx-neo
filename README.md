@@ -2,7 +2,7 @@
 
 > sim_backend.py — Persistent Python simulation backend for sims-javafx-neo.
 
-*Auto-generated 2026-06-28 19:23 from source — branch `main`, 21 Python modules, 39 other files.*
+*Auto-generated 2026-06-29 14:11 from source — branch `main`, 21 Python modules, 39 other files.*
 
 ## Architecture
 
@@ -203,11 +203,12 @@ sim_backend.py — Persistent Python simulation backend for sims-javafx-neo.
 ## Status
 
 - Branch: `main`
-- Last commit: 2026-06-27 04:40:09 -0600
+- Last commit: 2026-06-28 19:41:50 -0600
 - File types: .java ×22, .md ×9, .json ×3, .txt ×1, .xml ×1, .zip ×1, .log ×1, .db ×1
 
 ### Recent commits
 ```
+41c5be0 [Moe autonomous] sims-javafx-neo 2026-06-28 19:41
 65e3d4a docs(sims-javafx-neo): autonomous update â€” 1 file(s)
 d8b68bd [Moe autonomous] sims-javafx-neo 2026-06-26 10:03
 6818dae [Moe autonomous] sims-javafx-neo 2026-06-20 02:09
@@ -215,7 +216,6 @@ d8b68bd [Moe autonomous] sims-javafx-neo 2026-06-26 10:03
 8c8eb27 Wire persistent Python bridge for sim engine
 26e09ae Enterprise: Automated Project Sync
 39e7232 Enterprise: Automated Project Sync
-ce4f983 chore: deep scrub of gemini and personal files
 ```
 
 ---
