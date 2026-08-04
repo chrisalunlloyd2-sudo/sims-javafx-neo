@@ -45,6 +45,7 @@ All notable changes to this project.
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
+- **[Docs]** docs: auto-update [skip-docs] ($hash)
 
 ## 2026-06
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-06-30 08:49 ($hash)
@@ -54,5 +55,4 @@ All notable changes to this project.
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-06-26 10:03 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-06-20 02:09 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-06-19 20:57 ($hash)
-- **[Changed]** Wire persistent Python bridge for sim engine ($hash)
 
