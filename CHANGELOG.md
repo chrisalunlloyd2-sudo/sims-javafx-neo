@@ -4,8 +4,8 @@ All notable changes to this project.
 
 ## 2026-08
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
-- **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-05 18:49 ($hash)
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
+- **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-05 18:49 ($hash)
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
 - **[Docs]** docs: auto-update [skip-docs] ($hash)
