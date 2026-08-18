@@ -4,6 +4,7 @@ import os
 DB_PATH = os.path.join("sprite_core", "context_fence", "db", "sprite.db")
 
 def init_db():
+    """Init db (function)."""
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
