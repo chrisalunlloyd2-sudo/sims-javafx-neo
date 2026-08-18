@@ -14,6 +14,7 @@ from init_hooks import inject_startup_hook
 class FinalOrchestrator:
     """Step 1403: Deploy the 'Final Orchestrator'"""
     def __init__(self):
+        """Init (function)."""
         self.db_path = os.path.join("sprite_core", "context_fence", "db", "sprite.db")
         self.sim_orch = LivingSimulationOrchestrator(self.db_path)
 
@@ -25,6 +26,7 @@ class FinalOrchestrator:
         print("[STRESS TEST] Scaling complete. Memory overhead within SSD fence limits.")
 
     def boot(self):
+        """Boot (function)."""
         print("--- [FINAL ORCHESTRATOR] BOOTING 1700-STEP ARCHITECTURE ---")
 
         # Step 755: Persistence
