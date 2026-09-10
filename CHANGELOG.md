@@ -3,6 +3,9 @@
 All notable changes to this project.
 
 ## 2026-08
+- **[Docs]** docs: document 1 public API in sprite_core\init_db.py (autonomous, logic-verified) ($hash)
+- **[Docs]** docs: document 2 public API in sprite_core\final_orchestrator.py (autonomous, logic-verified) ($hash)
+- **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-15 03:28 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-15 02:55 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-15 02:14 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-15 01:31 ($hash)
@@ -50,7 +53,4 @@ All notable changes to this project.
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-13 05:44 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-13 05:01 ($hash)
 - **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-13 04:01 ($hash)
-- **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-13 03:27 ($hash)
-- **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-13 02:34 ($hash)
-- **[Changed]** [Moe autonomous] sims-javafx-neo 2026-08-13 01:44 ($hash)
 
